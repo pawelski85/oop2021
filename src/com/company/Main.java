@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal dog = new Animal();
+        Animal dog = new Animal("dog");
 
         dog.name = "Szarik";
 
@@ -26,16 +26,21 @@ public class Main {
         dog.feed(1.0);
         dog.printWeight();
 
-        me.phone = new Phone("onePlus",
+        Phone onePlus = new Phone("onePlus",
                 "8Pro",
                 2.3,
                 "Android");
 
-        System.out.println(me.phone.model);
 
-        me.phone = new Phone("apple", "6s", 5.0, "iOs");
+        Phone iPhone6 = new Phone("apple", "6s", 5.0, "iOs");
 
-        System.out.println(me.phone.model);
+        System.out.println(Phone.greetings);
+        System.out.println(Phone.greetings);
+
+        Phone.greetings = "HI";
+
+        System.out.println(Phone.greetings);
+        System.out.println(Phone.greetings);
 
 
     }

@@ -6,6 +6,8 @@ public class Phone {
     public final Double screenSize;
     public String os;
 
+    public static String greetings = "HELLO";
+
     Phone(String producer, String model, Double screenSize, String os) {
         this.producer = producer;
         this.model = model;
