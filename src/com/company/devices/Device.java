@@ -1,11 +1,18 @@
 package com.company.devices;
 
-public class Device {
+public abstract class Device {
     public String producer;
     public String model;
 
-    public void turnOn() {
-        System.out.println("hello user");
+    public Device(String producer, String model) {
+        this.producer = producer;
+        this.model = model;
+    }
+
+    abstract public void turnOn();
+
+    public String toString() {
+        return producer + " " + model;
     }
 
 }

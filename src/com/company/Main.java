@@ -15,6 +15,10 @@ public class Main {
         me.firstName = "Kacper";
         me.lastName = "Warda";
         me.pet = dog;
+        me.hashCode();
+
+        me.feed(1.0);
+        System.out.println(me.species);
 
         Phone onePlus = new Phone("onePlus",
                 "8Pro",
@@ -30,27 +34,19 @@ public class Main {
 
         onePlus.turnOn();
 
-        Car fiat = new Car();
+        Car fiat = new Car("fiat", "bravo");
         fiat.engineSize = 1.9;
         fiat.fuelType = "disel";
-        fiat.producer = "Fiat";
-        fiat.model = "Bravo";
+        System.out.println(fiat.producer);
 
-        System.out.println(iPhone6.os);
-        System.out.println(iPhone6.screenSize);
-        System.out.println(iPhone6.model);
-        System.out.println(iPhone6.producer);
+        dog.feed(1.0);
 
-        fiat.turnOn();
-        iPhone6.turnOn();
+        Human brother = new Human(1231.2);
 
-        System.out.println(me instanceof Human);
-        System.out.println(me instanceof Animal);
+        dog.sell(me, brother, 1.0);
 
-        System.out.println(me.getClass());
-        System.out.println(me.getClass().getSuperclass());
-        System.out.println(me.getClass().getSuperclass().getSuperclass());
-        System.out.println(me.getClass().getSuperclass().getSuperclass().getSuperclass());
+        fiat.refill();
+
 
     }
 }
