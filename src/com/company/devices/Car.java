@@ -6,9 +6,12 @@ public class Car extends Device implements Refillable, Comparable<Car> {
 
     public Double engineSize;
     public String fuelType;
+    public Engine engine;
+    public boolean isRunning;
 
     public Car(String producer, String model) {
         super(producer, model);
+        this.engine = new Engine();
     }
 
     @Override
@@ -16,6 +19,7 @@ public class Car extends Device implements Refillable, Comparable<Car> {
         System.out.println("turning the key");
         System.out.println("engine starts");
         System.out.println("you can drive now");
+
     }
 
     @Override
@@ -48,5 +52,29 @@ public class Car extends Device implements Refillable, Comparable<Car> {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), engineSize, fuelType);
+    }
+
+    public class Engine {
+        private int horsePower;
+        private double volume;
+        private double mileage;
+
+        public void turnOn() {
+            System.out.println("car is on");
+            isRunning = true;
+        }
+
+        public void turnOff() {
+            System.out.println("car is off");
+            isRunning = false;
+        }
+    }
+
+    public void startACar() {
+        engine.turnOn();
+    }
+
+    public void stopACar() {
+        engine.turnOff();
     }
 }
