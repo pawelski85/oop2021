@@ -1,15 +1,16 @@
 package com.company.devices;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Phone extends Device implements Refillable {
     private static final String DEFAULT_VERSION = "latest";
     public final Double screenSize;
-    public String os;
+    public OperatingSystem os;
 
     public static String greetings = "HELLO";
 
-    public Phone(String producer, String model, Double screenSize, String os) {
+    public Phone(String producer, String model, Double screenSize, OperatingSystem os) {
         super(producer, model);
         this.screenSize = screenSize;
         this.os = os;
@@ -21,9 +22,11 @@ public class Phone extends Device implements Refillable {
     }
 
     public void turnOn() {
-        System.out.println("push the button");
-        System.out.println("software is loading");
-        System.out.println("now you can call");
+        switch (this.os){
+            case iOS-> System.out.println("show bitten apple");
+            case Android -> System.out.println("show litte robot");
+            case WindowsMobile -> System.out.println("show 4 squares");
+        }
     }
 
     @Override
@@ -65,4 +68,17 @@ public class Phone extends Device implements Refillable {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Phone)) return false;
+        if (!super.equals(o)) return false;
+        Phone phone = (Phone) o;
+        return screenSize.equals(phone.screenSize) && os == phone.os;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), screenSize, os);
+    }
 }

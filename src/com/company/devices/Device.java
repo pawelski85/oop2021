@@ -1,5 +1,7 @@
 package com.company.devices;
 
+import java.util.Objects;
+
 public abstract class Device {
     public String producer;
     public String model;
@@ -15,4 +17,16 @@ public abstract class Device {
         return producer + " " + model;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Device)) return false;
+        Device device = (Device) o;
+        return producer.equals(device.producer) && model.equals(device.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(producer, model);
+    }
 }

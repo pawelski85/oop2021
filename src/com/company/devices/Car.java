@@ -1,5 +1,7 @@
 package com.company.devices;
 
+import java.util.Objects;
+
 public class Car extends Device implements Refillable, Comparable<Car> {
 
     public Double engineSize;
@@ -32,5 +34,19 @@ public class Car extends Device implements Refillable, Comparable<Car> {
     @Override
     public int compareTo(Car car) {
         return (int) (this.engineSize - car.engineSize);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Car car = (Car) o;
+        return engineSize.equals(car.engineSize) && fuelType.equals(car.fuelType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), engineSize, fuelType);
     }
 }

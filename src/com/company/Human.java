@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.devices.FoodType;
 import com.company.devices.Phone;
 
 public class Human extends Animal {
@@ -12,9 +13,13 @@ public class Human extends Animal {
 
     private Double salary;
 
-    Human(Double salary) {
-        super(HUMAN_SPECIE);
-        this.setSalary(salary);
+    public Human(String species, FoodType foodType, String firstName, String lastName, Animal pet, Phone phone, Double salary) {
+        super(species, foodType);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pet = pet;
+        this.phone = phone;
+        this.salary = salary;
     }
 
     public Double getSalary() {
