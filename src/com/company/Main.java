@@ -120,7 +120,12 @@ public class Main {
         animalArrayList.add(new Animal("cat",FoodType.CROPS));
         animalArrayList.add(new Human("human",FoodType.MEAT));
         System.out.println(animalArrayList);
-        Collections.sort(animalArrayList, Comparator.comparing(Animal::getWeight));
+        Collections.sort(animalArrayList, new Comparator<Animal>() {
+            @Override
+            public int compare(Animal o1, Animal o2) {
+                return o1.getWeight().compareTo(o2.getWeight());
+            }
+        });
         System.out.println(animalArrayList);
 
     }
