@@ -14,6 +14,10 @@ public class Animal {
     private Double weight;
     public FoodType foodType;
 
+    public Double getWeight() {
+        return weight;
+    }
+
     public Animal(String species, FoodType foodType) {
         this.species = species;
         this.foodType = foodType;
@@ -27,7 +31,11 @@ public class Animal {
                 this.weight = DEFAULT_CAT_WEIGHT;
       //          this.foodType = FoodType.ALL;
             }
-            case "elephant" -> {
+            case "cow" -> {
+                this.weight = DEFAULT_ELEPHANT_WEIGHT;
+      //          this.foodType = FoodType.CROPS;
+            }
+            case "homo sapiens" -> {
                 this.weight = DEFAULT_ELEPHANT_WEIGHT;
       //          this.foodType = FoodType.CROPS;
             }
@@ -53,7 +61,17 @@ public class Animal {
 
     }
 
-//    void feed(Double foodWeight) {
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", species='" + species + '\'' +
+                ", weight=" + weight +
+                ", foodType=" + foodType +
+                '}';
+    }
+
+    //    void feed(Double foodWeight) {
 //        this.weight += foodWeight;
 //        System.out.println("thx for food, bro");
 //        System.out.println("my weight is now " + this.weight);
