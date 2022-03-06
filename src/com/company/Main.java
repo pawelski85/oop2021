@@ -108,7 +108,7 @@ public class Main {
         System.out.println(devices.get("Siemens"));
 
 /**
- * TASK 8
+ * TASK 8 & 11
  * Create a List of Animals
  * Add 6 Animals / Humans / Pets / FarmAnimals to it
  * Sort it by weight using anonymous comparator
@@ -120,12 +120,7 @@ public class Main {
         animalArrayList.add(new Animal("cat",FoodType.CROPS));
         animalArrayList.add(new Human("human",FoodType.MEAT));
         System.out.println(animalArrayList);
-        Collections.sort(animalArrayList, new Comparator<Animal>() {
-            @Override
-            public int compare(Animal o1, Animal o2) {
-                return o1.getWeight().compareTo(o2.getWeight());
-            }
-        });
+        Collections.sort(animalArrayList, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
         System.out.println(animalArrayList);
 
     }
