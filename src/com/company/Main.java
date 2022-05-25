@@ -115,13 +115,33 @@ public class Main {
  */
 
         List<Animal> animalArrayList = new ArrayList<>();
-        animalArrayList.add(new Animal("dog",FoodType.ALL));
-        animalArrayList.add(new Animal("cow",FoodType.CROPS));
-        animalArrayList.add(new Animal("cat",FoodType.CROPS));
-        animalArrayList.add(new Human("human",FoodType.MEAT));
+        animalArrayList.add(new Animal("dog", FoodType.ALL));
+        animalArrayList.add(new Animal("cow", FoodType.CROPS));
+        animalArrayList.add(new Animal("cat", FoodType.CROPS));
+        animalArrayList.add(new Human("human", FoodType.MEAT));
         System.out.println(animalArrayList);
         Collections.sort(animalArrayList, (o1, o2) -> o1.getWeight().compareTo(o2.getWeight()));
         System.out.println(animalArrayList);
 
+
+        ApiConnector connector = new ApiConnector();
+        try {
+            String data = connector.getCurrency();
+            String[] array = data.split(",");
+            String numberValue;
+            Double plnValue;
+            for (String s : array
+            ) {
+                if (s.contains("PLN")) {
+                    numberValue = s.split(":")[1];
+                    plnValue = Double.parseDouble(numberValue);
+                    System.out.println(plnValue);
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
     }
 }

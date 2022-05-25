@@ -6,6 +6,9 @@ import java.util.Objects;
 public class Phone extends Device implements Refillable {
     private static final String DEFAULT_VERSION = "latest";
     public final Double screenSize;
+    /**
+     * Task 1
+     */
     public OperatingSystem os;
 
     public static String greetings = "HELLO";
@@ -22,8 +25,8 @@ public class Phone extends Device implements Refillable {
     }
 
     public void turnOn() {
-        switch (this.os){
-            case iOS-> System.out.println("show bitten apple");
+        switch (this.os) {
+            case iOS -> System.out.println("show bitten apple");
             case Android -> System.out.println("show litte robot");
             case WindowsMobile -> System.out.println("show 4 squares");
         }
